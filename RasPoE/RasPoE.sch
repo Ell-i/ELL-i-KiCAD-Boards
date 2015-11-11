@@ -12,11 +12,11 @@ EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
-Comment1 ""
+Title "RasPoE"
+Date "2015-11-11"
+Rev "14bec14"
+Comp "ELL-i Open Source Co-operative"
+Comment1 "support@ell-i.org"
 Comment2 ""
 Comment3 ""
 Comment4 ""

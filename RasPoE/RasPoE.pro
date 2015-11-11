@@ -1,4 +1,4 @@
-update=Mon 22 Jun 2015 15:29:34 EEST
+update=Wed 11 Nov 2015 20:49:16 EET
 version=1
 last_client=kicad
 [cvpcb]
@@ -49,3 +49,13 @@ LibName4=power
 LibName5=dc-dc
 LibName6=regul
 LibName7=logo
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=printout/
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=Pcbnew
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60

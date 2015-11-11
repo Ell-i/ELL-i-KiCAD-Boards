@@ -13,6 +13,14 @@
   )
 
   (page A4)
+  (title_block
+    (title RasPoE)
+    (date 2015-11-11)
+    (rev 14bec14)
+    (company "ELL-i Open Source Co-operative")
+    (comment 1 support@ell-i.org)
+  )
+
   (layers
     (0 F.Cu signal)
     (31 B.Cu signal)

@@ -42,7 +42,7 @@ If your Raspberry Pi does not power up or network connection fails, please check
     Is the RasPoE properly connected?
     Does your switch support PoE technology?
 
-If the problem remains, please contact us at support@elli.org and we'll help you with the issue. 
+If the problem remains, please contact us at support@ell-i.org and we'll help you with the issue. 
 
 RasPoE emits high-pitched noise when there is  low load, this is normal. You can add optional load resistors R6, R7 to avoid this noise.
 

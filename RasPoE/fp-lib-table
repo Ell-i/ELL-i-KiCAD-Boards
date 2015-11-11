@@ -84,7 +84,7 @@
   (lib (name Valves)(type Github)(uri ${KIGITHUB}/Valves.pretty)(options "")(descr "The way you like them."))
   (lib (name Wire_Connections_Bridges)(type Github)(uri ${KIGITHUB}/Wire_Connections_Bridges.pretty)(options "")(descr "The way you like them."))
   (lib (name Wire_Pads)(type Github)(uri ${KIGITHUB}/Wire_Pads.pretty)(options "")(descr "The way you like them."))
-  (lib (name project_specific)(type KiCad)(uri ${KIPRJMOD}/temp.pretty)(options "")(descr "Holder for parts not found in KiCAD libraries, to be committed"))
+  (lib (name project_specific)(type KiCad)(uri ${KIPRJMOD}/footprints.pretty)(options "")(descr "Holder for parts not found in KiCAD libraries, to be committed"))
   (lib (name logos)(type Github)(uri https://github.com/ojousima/logos.pretty)(options "")(descr "ELL-i logo"))
   (lib (name SMD_ojousima)(type Github)(uri https://github.com/ojousima/SMD_Passives.pretty)(options "")(descr "SMD footprints"))
 )

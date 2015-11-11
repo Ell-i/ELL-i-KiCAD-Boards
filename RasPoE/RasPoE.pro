@@ -1,4 +1,4 @@
-update=Wed 11 Nov 2015 21:15:01 EET
+update=Wed 11 Nov 2015 21:26:03 EET
 version=1
 last_client=kicad
 [cvpcb]
@@ -31,7 +31,7 @@ ModuleOutlineThickness=0.15
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
-PlotDirectoryName=printout/
+PlotDirectoryName=images/
 SubpartIdSeparator=0
 SubpartFirstId=65
 NetFmtName=Pcbnew
@@ -50,3 +50,5 @@ LibName5=dc-dc
 LibName6=regul
 LibName7=logo
 LibName8=libraries/ag9800
+LibName9=libraries/bridge
+LibName10=libraries/transformer_ethernet

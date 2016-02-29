@@ -1,0 +1,5 @@
+Tsys01		KEYWORD1
+startAdc	KEYWORD2
+readTemperature	KEYWORD2
+powerOn		KEYWORD2
+powerOff	KEYWORD2

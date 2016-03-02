@@ -51,7 +51,7 @@ The names of the pins and they functions are described in the following list:
  - MISO - Connect MISO when using SPI.
  - MODE - Select communication protocol. Has internal pull-up so defaults to I2C. (LOW for SPI, High for I2C)
  - CS/ADDR - Chip select when using SPI. I2C address selector pin when using I2C. Has internal pull-up so deafaults to 1110110x. (HIGH for addr 1110110x, LOW for addr 1110111x)
- - Shutdown - Pin for shutting down on board regulator. Has internal pull-up so defaults to enable regulator (LOW for disable regolator, HIGH for enable regulator)
+ - Shutdown - Pin for shutting down onboard regulator. Has internal pull-up so defaults to enable regulator. (LOW for disable regolator, HIGH for enable regulator)
 
 
 ###Voltages

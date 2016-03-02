@@ -43,14 +43,15 @@ TODO: remove resistor for lower power.
 
 The pin layout is visible from the image above.
 The names of the pins and they functions are described in the following list:
-> Vin - For connecting input power (3.3V - 12V, 5V preferred)
-> GND - For connecting the ground wire
-> SCLK/SCL - For connecting the clock signal when using SPI or I2C communication
-> MOSI/SDA - Connect MOSI when using SPI and SDA when using I2C
-> MISO - Connect MISO when using SPI
-> MODE - Select communication protocol, has internal pull-up so defaults to I2C. (LOW for SPI, High for I2C)
-> CS/ADDR - Chip select when using SPI, I2C address selector pin when using I2C. Has internal pull-up (HIGH for addr 1110110x, LOW for addr 1110111x)
-> Shutdown - Pin for shutting down on board regulator. Has internal pull up. (LOW for disable regolator, HIGH for enable regulator)
+
+  Vin - For connecting input power (3.3V - 12V, 5V preferred)
+  GND - For connecting the ground wire
+  SCLK/SCL - For connecting the clock signal when using SPI or I2C communication
+  MOSI/SDA - Connect MOSI when using SPI and SDA when using I2C
+  MISO - Connect MISO when using SPI
+  MODE - Select communication protocol, has internal pull-up so defaults to I2C. (LOW for SPI, High for I2C)
+  CS/ADDR - Chip select when using SPI, I2C address selector pin when using I2C. Has internal pull-up (HIGH for addr 1110110x, LOW for addr 1110111x)
+  Shutdown - Pin for shutting down on board regulator. Has internal pull up. (LOW for disable regolator, HIGH for enable regulator)
 
 
 ###Voltages

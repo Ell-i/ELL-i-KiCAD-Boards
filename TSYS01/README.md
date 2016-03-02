@@ -22,6 +22,9 @@ It also calculates temperature values using the calibration coefficients read fr
 
 #User instructions
 
+![Image of TSYS01 temperature board](images/tsys01_top.jpeg)
+![Image of TSYS01 temperature board](images/tsys01_bottom.jpeg)
+
 
 ##Caution
 Handle with care.

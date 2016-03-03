@@ -73,7 +73,7 @@ For further power reductions in applications where it is absolutely necessary to
 
 To reduce the power consumption of the TSYS01 Temperature Sensor Board when the regulator has been turned off you could remove the pull-up resistor R5 from the board. This will require you to connect the Shutdown pin to prevent the input pin from floating. Removing the 100k pull-up resistor should reduce the current drawn by the sensor board by Vin/100000 amperes, when the regulator has been turned off.
 
-To reduce the size of the remperature sensor board where small size is essential, and use the sensor board as a simple breakout board, you can cut off the sensor island from the main board. This will remove the regulator, SPI communication option, and all of the input protection permanently(!!!) from the board. You will also have to provide the noise free input power to sensor at 3.3V to get the advertised accuracy of 0.1°C and lowest possible noise. How ever you should be able to solder a pin header to the 4 available pads at the sensor island for communicationg with the sensor using I2C.
+To reduce the size of the remperature sensor board where small size is essential, and use the sensor board as a simple breakout board, you can cut off the sensor island from the main board. This will remove the regulator, SPI communication option, and all of the input protection permanently(!!!) from the board. You will also have to provide the noise free input power to sensor at 3.3V to get the advertised accuracy of 0.1°C and lowest possible noise. However, you should be able to solder a pin header to the 4 available pads at the sensor island for communicating with the sensor using I2C.
 
 ###Pin layout
 ![Image of TSYS01 temperature board](./images/tsys01_bottom.jpg)

@@ -35,8 +35,43 @@ Make sure to protect the device from water condensation when used in low tempera
 
 ##Usage
 
+Connect Vin in to a voltage source(3.3V-12V) and GND to 0V.
+
+Connect data signal lines for I2C or SPI communication and connect MODE pin to 0V when using SPI, or leave it unconnected for I2C.
+
+You can also optinally connect Shutdown to a microcontroller data pin to turn off the sensor board.
+
+When using I2C you can connect the CS/ADDR pin to ground to change the sensor I2C address.
+
+When you have connected all of the data lines you need, you can communicate with the TSYS01 chip using the communication method you chose to wire. You can use the provided Arduino library to easily communicate with your sensor, or choose the implement the communication yourself using the TSYS01 datasheet for help.
+
+The provided arduino library can be downloaded from https://github.com/Ell-i/ELL-i-KiCAD-Boards.
+The arduino library can be found under TSYS01/Arduino.(You need Tsys01.h and Tsys01.cpp)
+You can also find an example test program under the examples folder.
+With the newest arduino IDE(as of writing version 1.6.7), you only need to place the Tsys01.h and Tsys01.cpp files to to same folder with your scetch to use the library.
+
+With the Arduino library you are supposed to create a new Tsys01 object for each TSYS01 temperature sensor you are using and give the pin numbers required as parameters in the constructor.
+There is also a constructor without any parameters, but this should only be used to create global variables that are to be reinitialized by using a constructor with parameters.
+The Tsys01 object created with the parameterless construct will not work(!!!), because the function can not know which arduino pins you have attached to the sensor, and which communication protocol you want to use.
+The object constructor automatically loads the calibration parameters from the sensor and saves them for further use.
+
+To read a temperature value from the sensor you first need to call the startAcd method of the Tsys01 object to start the analog to digital conversion.
+The function will block the other code from running until the adc start command has been sent, but returns before the conversion result is ready.
+This enables you to run some code while the conversion is still taking place, or you can just use a delay to wait for the conversion to finish.
+According to the TSYS01 datasheet the conversion takes a maximum of 9.04 ms, but you can wait 10 ms with delay(10) to be sure.
+After the conversion is ready you should be able to read the temperature by using the readTemperature() method of the Tsys01 object.
+The method reads the ADC result from the sensor, uses the calibration parameters to calculate the temperature value and returns the result in degrees celsius.
+To get a new temperature value you must start a new conversion, wait for the conversion to finish and then use the readTemperature() method again.
+
+If you have connected the Shutdown pin of the temperature sensor, you can use the powerOff() and powerOn() methods to turn off and on the regulator of the board.
+After turning the regulator back on with the powerOn() method, you should be sure to wait 4 ms before starting another adc conversion to give the sensor enough time to reset.
+To minimize the power consumption you should also make sure that all of the signal pins that you have connected to the sensor board are pulled down to prevent the TSYS01 sensor from drawing power through the signal lines.
+For further power reduction in applications where it is absolutely necessary to reduce the power consumption even more, you could refer to the hacking section.
+
+
 ##Hacking
-TODO: remove resistor for lower power.
+
+To reduce the power consumption of the TSYS01 Temperature Sensor Board when the regulator has been turned off you could remove the pull-up resistor R5 from the board. This will require you to connect the Shutdown pin to prevent the input pin from floating. Removing the 100k pull-up resistor should reduce the current drawn by the sensor board by Vin/100000 amperes, when the regulator has been turned off.
 
 ###Pin layout
 ![Image of TSYS01 temperature board](./images/tsys01_bottom.jpg)
@@ -55,11 +90,10 @@ The names of the pins and they functions are described in the following list:
 
 
 ###Voltages
-20V abs max
-recommended < 12V
-3.3V compatible
 
-Recommended 3.3V or 5V
+Logic level voltage range 0-3.3V
+
+Input power voltage range(Vin to GND) 3.3V-12V(20V abs max!)
 
 ##Troubleshooting
 

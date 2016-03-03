@@ -48,7 +48,7 @@ When you have connected all of the data lines you need, you can communicate with
 The provided arduino library can be downloaded from https://github.com/Ell-i/ELL-i-KiCAD-Boards.
 The arduino library can be found under TSYS01/Arduino.(You need Tsys01.h and Tsys01.cpp)
 You can also find an example test program under the examples folder.
-With the newest arduino IDE(as of writing version 1.6.7), you only need to place the Tsys01.h and Tsys01.cpp files to to same folder with your scetch to use the library.
+With the newest arduino IDE(as of writing version 1.6.7), you only need to place the Tsys01.h and Tsys01.cpp files to to same folder with your sketch to use the library.
 
 With the Arduino library you are supposed to create a new Tsys01 object for each TSYS01 temperature sensor you are using and give the pin numbers required as parameters in the constructor.
 There is also a constructor without any parameters, but this should only be used to create global variables that are to be reinitialized by using a constructor with parameters.

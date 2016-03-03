@@ -39,7 +39,7 @@ Connect Vin in to a voltage source(3.3V-12V) and GND to 0V.
 
 Connect data signal lines for I2C or SPI communication and connect MODE pin to 0V when using SPI, or leave it unconnected for I2C.
 
-You can also optinally connect Shutdown to a microcontroller data pin to turn off the sensor board.
+You can also optionally connect Shutdown to a microcontroller data pin to turn off the sensor board while it is not in use.
 
 When using I2C you can connect the CS/ADDR pin to ground to change the sensor I2C address.
 
@@ -66,12 +66,14 @@ To get a new temperature value you must start a new conversion, wait for the con
 If you have connected the Shutdown pin of the temperature sensor, you can use the powerOff() and powerOn() methods to turn off and on the regulator of the board.
 After turning the regulator back on with the powerOn() method, you should be sure to wait 4 ms before starting another adc conversion to give the sensor enough time to reset.
 To minimize the power consumption you should also make sure that all of the signal pins that you have connected to the sensor board are pulled down to prevent the TSYS01 sensor from drawing power through the signal lines.
-For further power reduction in applications where it is absolutely necessary to reduce the power consumption even more, you could refer to the hacking section.
+For further power reductions in applications where it is absolutely necessary to reduce the power consumption even more, you could refer to the hacking section.
 
 
 ##Hacking
 
 To reduce the power consumption of the TSYS01 Temperature Sensor Board when the regulator has been turned off you could remove the pull-up resistor R5 from the board. This will require you to connect the Shutdown pin to prevent the input pin from floating. Removing the 100k pull-up resistor should reduce the current drawn by the sensor board by Vin/100000 amperes, when the regulator has been turned off.
+
+To reduce the size of the remperature sensor board where small size is essential, and use the sensor board as a simple breakout board, you can cut off the sensor island from the main board. This will remove the regulator, SPI communication option, and all of the input protection permanently(!!!) from the board. You will also have to provide the noise free input power to sensor at 3.3V to get the advertised accuracy of 0.1°C and lowest possible noise. How ever you should be able to solder a pin header to the 4 available pads at the sensor island for communicationg with the sensor using I2C.
 
 ###Pin layout
 ![Image of TSYS01 temperature board](./images/tsys01_bottom.jpg)

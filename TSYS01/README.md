@@ -43,7 +43,7 @@ You can also optionally connect Shutdown to a microcontroller data pin to turn o
 
 When using I2C you can connect the CS/ADDR pin to ground to change the sensor I2C address.
 
-When you have connected all of the data lines you need, you can communicate with the TSYS01 chip using the communication method you chose to wire. You can use the provided Arduino library to easily communicate with your sensor, or choose the implement the communication yourself using the TSYS01 datasheet for help.
+When you have connected all of the data lines you need, you can communicate with the TSYS01 chip using the communication method you chose to wire. You can use the provided Arduino library to easily communicate with your sensor, or choose to implement the communication yourself using the TSYS01 datasheet for help and the arduino library as an example.
 
 The provided arduino library can be downloaded from https://github.com/Ell-i/ELL-i-KiCAD-Boards.
 The arduino library can be found under TSYS01/Arduino.(You need Tsys01.h and Tsys01.cpp)

@@ -79,7 +79,7 @@ To reduce the size of the remperature sensor board where small size is essential
 ![Image of TSYS01 temperature board](./images/tsys01_bottom.jpg)
 
 The pin layout is visible from the image above.
-The names of the pins and they functions are described in the following list:
+The names of the pins and their functions are described in the following list:
 
  - Vin - For connecting input power. (3.3V - 12V, 5V preferred)
  - GND - For connecting the ground wire.

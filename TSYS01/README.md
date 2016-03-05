@@ -99,4 +99,33 @@ Input power voltage range(Vin to GND) 3.3V-12V(20V abs max!)
 
 ##Troubleshooting
 
+If you are using the provided arduino library to communicate with the TSYS01, you can enable additional debug prints from inside the library by adding: #define TSYS_DEBUG 1 in the beginning of you sketch.
+This will enable additional debug prints from inside the library and should help in localizing the problem.Enabling the debug prints should reveal weather the program performs all the steps required for successfully getting a temperature value.
+These steps are: The reset signal should be sent to the microcontroller after the power has been applied.
+You should wait 4 ms before sending additional commands to the sensor after reset.
+The calibration parameters should be read from the TSYS01 sensor.
+The ADC start command should be sent to the TSYS01 sensor and 10 ms should pass after sending the read temperature command to the sensor.
+The read command should return something else than all zeroes for the ADC value.
+
+If all zeroes is being returned for the calibration parameters there is most likely something wrong with you wiring of the TSYS01 sensor, and you should: 
+
+ - Make sure that the sensor has been connected correctly to the microcontroller by referring to the pin layout provided in this document for the TSYS01 temperature sensor board and the pin out of your microcontroller.
+
+ - If you have checked the connections and are still having problems with receiving zeroes for the calibration parameters, you should use an oscilloscope to verify that the waveforms of your communication signals are nice and square and without excessive noise.
+
+
+If the debug print indicates that the ADC value received from the sensor is zero for all bytes, you should check the following:
+
+ - Check that you have implemented the proper 10 ms delay between calling the startADC() and readTemeperature() functions. And make sure that the startADC() function is called once for each call of the readTemperature function. Multiple calls to the readTemperature() function will result in all zeros being returned by the TSYS01 sensor.
+
+ - If using the powerOn() and powerOff() functions, make sure that you have implemented a 4 ms delay before trying to start a new ADC conversion. The 4 ms delay is needed for the TSYS01 to complete the reset initiated by the powerOn() -function.
+
+ - You can try running the test program provided under Arduino/examples/tsys01 by using the connections indicated inside the comments of the file. If this works the problem is most likely in the software you are trying to use. You should compare your software to the working example to verify that you have the right idea about communicating the sensor.
+
+If you are still having problems you can email support@ell-i.org 
+
+It will help if you can describe your problem, setup and the steps you have taken when trying to solve the issue in you email.
+
 ##How to buy
+
+

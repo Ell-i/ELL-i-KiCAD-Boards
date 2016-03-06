@@ -125,7 +125,7 @@ If the debug print indicates that the ADC value received from the sensor is zero
 
  - If using the powerOn() and powerOff() functions, make sure that you have implemented a 4 ms delay before trying to start a new ADC conversion. The 4 ms delay is needed for the TSYS01 to complete the reset initiated by the powerOn() -function.
 
- - You can try running the test program provided under Arduino/examples/tsys01 by using the connections indicated in the comments of that file. If this works the problem is most likely in the software you are trying to use. You should compare your software to the working example ([video])(https://www.youtube.com/watch?v=D7fiz2vnEho) to verify that you using the provided file correctly.
+ - You can try running the test program provided under Arduino/examples/tsys01 by using the connections indicated in the comments of that file. If this works the problem is most likely in the software you are trying to use. You should compare your software to the working example ( [video](https://www.youtube.com/watch?v=D7fiz2vnEho) ) to verify that you're using the provided library correctly.
 
 If you are still having problems you can email support@ell-i.org 
 

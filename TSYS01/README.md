@@ -20,6 +20,9 @@ There is also an Arduino library available for this temperature sensor board ena
 The library can be used to communicate with multiple temperature sensors using the I2C or SPI interface.
 It also calculates temperature values using the calibration coefficients read from the TSYS01 and provides functions for turning on and off the linear regulator of the sensor board.
 
+![Mechanical dimensions](./images/mechanical.jpg)
+The board is 20.5 mm wide, 30.5 mm long (39 mm including connetor pins) and 2.5 mm thick. There are 2 mounting holes for M2.5 screws on top left and right. The board has exposed pad under TSYS01. If you're sensing some material, pad should be connected to material being sensed with electrically insulating and thermally conductive tape. If you're sensing air temperature, pad should not be connected. 
+
 #User instructions
 
 ![Image of TSYS01 temperature board](./images/tsys01_top.jpg)
@@ -101,7 +104,7 @@ Input power voltage range(Vin to GND) 3.3V-12V(20V abs max!)
 
 If you are using the provided arduino library to communicate with the TSYS01, you can enable additional debug prints from inside the library by adding: #define TSYS_DEBUG 1 in the beginning of you sketch.
 This will enable additional debug prints from inside the library and should help in localizing the problem.
-Enabling the debug prints should reveal weather the program performs all the steps required for successfully getting a temperature value.
+Enabling the debug prints should reveal whether the program performs all the steps required for successfully getting a temperature value.
 These steps are: The reset signal should be sent to the microcontroller after the power has been applied.
 You should wait 4 ms before sending additional commands to the sensor after reset.
 The calibration parameters should be read from the TSYS01 sensor.

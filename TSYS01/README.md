@@ -21,6 +21,7 @@ The library can be used to communicate with multiple temperature sensors using t
 It also calculates temperature values using the calibration coefficients read from the TSYS01 and provides functions for turning on and off the linear regulator of the sensor board.
 
 ![Mechanical dimensions](./images/mechanical.jpg)
+
 The board is 20.5 mm wide, 30.5 mm long (39 mm including connetor pins) and 2.5 mm thick. There are 2 mounting holes for M2.5 screws on top left and right. The board has exposed pad under TSYS01. If you're sensing some material, pad should be connected to material being sensed with electrically insulating and thermally conductive tape. If you're sensing air temperature, pad should not be connected. 
 
 #User instructions
@@ -124,12 +125,12 @@ If the debug print indicates that the ADC value received from the sensor is zero
 
  - If using the powerOn() and powerOff() functions, make sure that you have implemented a 4 ms delay before trying to start a new ADC conversion. The 4 ms delay is needed for the TSYS01 to complete the reset initiated by the powerOn() -function.
 
- - You can try running the test program provided under Arduino/examples/tsys01 by using the connections indicated in the comments of that file. If this works the problem is most likely in the software you are trying to use. You should compare your software to the working example to verify that you using the provided file correctly.
+ - You can try running the test program provided under Arduino/examples/tsys01 by using the connections indicated in the comments of that file. If this works the problem is most likely in the software you are trying to use. You should compare your software to the working example ([video])(https://www.youtube.com/watch?v=D7fiz2vnEho) to verify that you using the provided file correctly.
 
 If you are still having problems you can email support@ell-i.org 
 
 It will help if you can describe your problem, setup and the steps you have taken when trying to solve the issue in you email.
 
 ##How to buy
-
+The board is soon available from our supplier.
 

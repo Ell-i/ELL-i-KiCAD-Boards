@@ -1,7 +1,13 @@
+Please note that the board schematic uses components from KiCad/kicad-library available under LGPL2 at 
+https://github.com/KiCad/kicad-library . Our additions to library are available under folder kicad-library 
+with the same license. 
+
+All the other code and documentation related to TSYS01 temperature sensor board in this folder is available under MIT license.
+
 The MIT License (MIT)
 =====================
 
-Copyright © `<year>` `<copyright holders>`
+Copyright © `2016` `ELL-i Open Source Co-operative`
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

@@ -1,7 +1,7 @@
 #include "Tsys01.h"
 #include <Wire.h>
 #include <SPI.h>
-#define TSYS_DEBUG 1
+#define TSYS_DEBUG 0
 
 
 // Use this constructor only for creating global variables

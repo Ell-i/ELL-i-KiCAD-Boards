@@ -103,7 +103,7 @@ Input power voltage range(Vin to GND) 3.3V-12V(20V abs max!)
 
 ##Troubleshooting
 
-If you are using the provided arduino library to communicate with the TSYS01, you can enable additional debug prints from inside the library by changing: #define TSYS_DEBUG 0 to #define TSYS_DEBUG 1 the beginning of the library.
+If you are using the provided arduino library to communicate with the TSYS01, you can enable additional debug prints from inside the library by changing: #define TSYS_DEBUG 0 to #define TSYS_DEBUG 1 in the beginning of the Tsys01.cpp -file.
 This will enable additional debug prints from inside the library and should help in localizing the problem.
 Enabling the debug prints should reveal whether the program performs all the steps required for successfully getting a temperature value.
 These steps are: The reset signal should be sent to the microcontroller after the power has been applied.

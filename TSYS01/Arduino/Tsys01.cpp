@@ -219,26 +219,30 @@ float Tsys01::readTemperature(void)
   //to get a good value.
   uint8_t rawAdc[3] = {};
   this->readBytes(TSYS01_READ, rawAdc, 3); 
-  uint16_t ADC16 = ((uint16_t)rawAdc[0]<<8) + (uint16_t)rawAdc[1];
+  
+  uint32_t ADC24 = ((uint32_t)rawAdc[0]<<16) + ((uint32_t)rawAdc[1]<<8) + (uint32_t)rawAdc[2];
 
   #if TSYS_DEBUG
     Serial.print("rawAdc: ");
     Serial.println((long unsigned int) (((long unsigned int)rawAdc[0] << 16) + ((long unsigned int)rawAdc[1] << 8) + (long unsigned int)rawAdc[2]));
-    Serial.print("ADC16: ");
-    Serial.println(ADC16);
+    Serial.print("ADC24: ");
+    Serial.println(ADC24);
   #endif
 
   // calculation of the terms, one by one to avoid accumulating error
-  float term1 = (-2.0) * this->coefficients[4] * pow(TSYS_POW_A * ADC16, 4);
-  float term2 = 4.0    * this->coefficients[3] * pow(TSYS_POW_B * ADC16, 3);
-  float term3 = (-2.0) * this->coefficients[2] * pow(TSYS_POW_C * ADC16, 2);
-  float term4 =          this->coefficients[1] * TSYS_POW_D * ADC16;
+  float term1 = (-2.0) * this->coefficients[4] * pow(TSYS_POW_A * ADC24, 4);
+  float term2 = 4.0    * this->coefficients[3] * pow(TSYS_POW_B * ADC24, 3);
+  float term3 = (-2.0) * this->coefficients[2] * pow(TSYS_POW_C * ADC24, 2);
+  float term4 =          this->coefficients[1] * TSYS_POW_D * ADC24;
   float term5 = (-1.5) * this->coefficients[0] * TSYS_POW_E;
-
-
 
   //final temperature
   float temperature = term1 + term2 + term3 + term4 + term5;
+
+  #if TSYS_DEBUG
+    Serial.print("temp24: ");
+    Serial.println(temperature,6);
+  #endif
 
   return temperature;
 }

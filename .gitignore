@@ -9,7 +9,6 @@
 *.pch
 
 # Libraries
-*.lib
 *.a
 *.la
 *.lo
@@ -34,3 +33,4 @@
 #kicad backup files
 *-bak
 *.bak
+*.dcm

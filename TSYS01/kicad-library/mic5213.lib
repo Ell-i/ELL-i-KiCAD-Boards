@@ -1,0 +1,21 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#
+# SP6213
+#
+DEF SP6213 U 0 40 Y Y 1 F N
+F0 "U" -250 200 40 H V C CNN
+F1 "SP6213" 200 200 40 H V C CNN
+F2 "" 0 100 35 H I C CIN
+F3 "https://www.exar.com/common/content/document.ashx?id=654" -150 350 60 H I C CNN
+DRAW
+S -300 150 300 -200 0 1 10 f
+X EN 1 -450 -100 150 R 40 40 1 1 I
+X NC/GND 2 -100 -300 100 U 40 40 1 1 W
+X GND 3 0 -300 100 U 40 40 1 1 I
+X VOUT 4 450 50 150 L 40 40 1 1 w
+X VIN 5 -450 50 150 R 40 40 1 1 I
+ENDDRAW
+ENDDEF
+#
+#End Library

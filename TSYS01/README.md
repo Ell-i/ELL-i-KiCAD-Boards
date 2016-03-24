@@ -132,5 +132,5 @@ If you are still having problems you can email support@ell-i.org
 It will help if you can describe your problem, setup and the steps you have taken when trying to solve the issue in you email.
 
 ##How to buy
-The board is available from our [Elecrow's web store](http://www.elecrow.com/tsys01-temperature-sensor-board-p-1608.html).
+The board is available from [Elecrow's web store](http://www.elecrow.com/tsys01-temperature-sensor-board-p-1608.html).
 

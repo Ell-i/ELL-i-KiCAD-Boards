@@ -22,7 +22,7 @@ It also calculates temperature values using the calibration coefficients read fr
 
 ![Mechanical dimensions](./images/mechanical.jpg)
 
-The board is 20.5 mm wide, 30.5 mm long (39 mm including connetor pins) and 2.5 mm thick. There are 2 mounting holes for M2.5 screws on top left and right. The board has exposed pad under TSYS01. If you're sensing some material, pad should be connected to material being sensed with electrically insulating and thermally conductive tape. If you're sensing air temperature, pad should not be connected. 
+The board is 20.5 mm wide, 30.5 mm long (39 mm including connector pins) and 2.5 mm thick. There are 2 mounting holes for M2.5 screws on top left and right. The board has exposed pad under TSYS01. If you're sensing some material, pad should be connected to material being sensed with electrically insulating and thermally conductive tape. If you're sensing air temperature, pad should not be connected. 
 
 #User instructions
 
@@ -47,16 +47,16 @@ You can also optionally connect Shutdown to a microcontroller data pin to turn o
 
 When using I2C you can connect the CS/ADDR pin to ground to change the sensor I2C address.
 
-When you have connected all of the data lines you need, you can communicate with the TSYS01 chip using the communication method you chose to wire. You can use the provided Arduino library to easily communicate with your sensor, or choose to implement the communication yourself using the TSYS01 datasheet for help and the arduino library as an example.
+When you have connected all of the data lines you need, you can communicate with the TSYS01 chip using the communication method you chose to wire. You can use the provided Arduino library to easily communicate with your sensor, or choose to implement the communication yourself using the TSYS01 datasheet for help and the Arduino library as an example.
 
-The provided arduino library can be downloaded from https://github.com/Ell-i/ELL-i-KiCAD-Boards.
-The arduino library can be found under TSYS01/Arduino.(You need Tsys01.h and Tsys01.cpp)
+The provided Arduino library can be downloaded from https://github.com/Ell-i/ELL-i-KiCAD-Boards.
+The Arduino library can be found under TSYS01/Arduino.(You need Tsys01.h and Tsys01.cpp)
 You can also find an example test program under the examples folder.
-With the newest arduino IDE(as of writing version 1.6.7), you only need to place the Tsys01.h and Tsys01.cpp files to to same folder with your sketch to use the library.
+With the newest Arduino IDE(as of writing version 1.6.7), you only need to place the Tsys01.h and Tsys01.cpp files to to same folder with your sketch to use the library.
 
 With the Arduino library you are supposed to create a new Tsys01 object for each TSYS01 temperature sensor you are using and give the pin numbers required as parameters in the constructor.
 There is also a constructor without any parameters, but this should only be used to create global variables that are to be reinitialized by using a constructor with parameters.
-The Tsys01 object created with the parameterless construct will not work(!!!), because the function can not know which arduino pins you have attached to the sensor, and which communication protocol you want to use.
+The Tsys01 object created with the parameterless construct will not work(!!!), because the function can not know which Arduino pins you have attached to the sensor, and which communication protocol you want to use.
 The object constructor automatically loads the calibration parameters from the sensor and saves them for further use.
 
 To read a temperature value from the sensor you first need to call the startAcd method of the Tsys01 object to start the analog to digital conversion.
@@ -77,7 +77,7 @@ For further power reductions in applications where it is absolutely necessary to
 
 To reduce the power consumption of the TSYS01 Temperature Sensor Board when the regulator has been turned off you could remove the pull-up resistor R5 from the board. This will require you to connect the Shutdown pin to prevent the input pin from floating. Removing the 100k pull-up resistor should reduce the current drawn by the sensor board by Vin/100000 amperes, when the regulator has been turned off.
 
-To reduce the size of the remperature sensor board where small size is essential, and use the sensor board as a simple breakout board, you can cut off the sensor island from the main board. This will remove the regulator, SPI communication option, and all of the input protection permanently(!!!) from the board. You will also have to provide the noise free input power to sensor at 3.3V to get the advertised accuracy of 0.1°C and lowest possible noise. However, you should be able to solder a pin header to the 4 available pads at the sensor island for communicating with the sensor using I2C.
+To reduce the size of the temperature sensor board where small size is essential, and use the sensor board as a simple breakout board, you can cut off the sensor island from the main board. This will remove the regulator, SPI communication option, and all of the input protection permanently(!!!) from the board. You will also have to provide the noise free input power to sensor at 3.3V to get the advertised accuracy of 0.1°C and lowest possible noise. However, you should be able to solder a pin header to the 4 available pads at the sensor island for communicating with the sensor using I2C.
 
 ###Pin layout
 ![Image of TSYS01 temperature board](./images/tsys01_bottom.jpg)
@@ -91,8 +91,8 @@ The names of the pins and their functions are described in the following list:
  - MOSI/SDA - Connect MOSI when using SPI and SDA when using I2C.
  - MISO - Connect MISO when using SPI.
  - MODE - Select communication protocol. Has internal pull-up so defaults to I2C. (LOW for SPI, High for I2C)
- - CS/ADDR - Chip select when using SPI. I2C address selector pin when using I2C. Has internal pull-up so deafaults to 1110110x. (HIGH for addr 1110110x, LOW for addr 1110111x)
- - Shutdown - Pin for shutting down onboard regulator. Has internal pull-up so defaults to enable regulator. (LOW for disable regolator, HIGH for enable regulator)
+ - CS/ADDR - Chip select when using SPI. I2C address selector pin when using I2C. Has internal pull-up so defaults to 1110110x. (HIGH for addr 1110110x, LOW for addr 1110111x)
+ - Shutdown - Pin for shutting down onboard regulator. Has internal pull-up so defaults to enable regulator. (LOW for disable regulator, HIGH for enable regulator)
 
 
 ###Voltages
@@ -103,7 +103,7 @@ Input power voltage range(Vin to GND) 3.3V-12V(20V abs max!)
 
 ##Troubleshooting
 
-If you are using the provided arduino library to communicate with the TSYS01, you can enable additional debug prints from inside the library by changing: #define TSYS_DEBUG 0 to #define TSYS_DEBUG 1 in the beginning of the Tsys01.cpp -file.
+If you are using the provided Arduino library to communicate with the TSYS01, you can enable additional debug prints from inside the library by changing: #define TSYS_DEBUG 0 to #define TSYS_DEBUG 1 in the beginning of the Tsys01.cpp -file.
 This will enable additional debug prints from inside the library and should help in localizing the problem.
 Enabling the debug prints should reveal whether the program performs all the steps required for successfully getting a temperature value.
 These steps are: The reset signal should be sent to the microcontroller after the power has been applied.
@@ -121,7 +121,7 @@ If all zeroes is being returned for the calibration parameters there is most lik
 
 If the debug print indicates that the ADC value received from the sensor is zero for all bytes, you should check the following:
 
- - Check that you have implemented the proper 10 ms delay between calling the startADC() and readTemeperature() functions. And make sure that the startADC() function is called once for each call of the readTemperature function. Multiple calls to the readTemperature() function will result in all zeros being returned by the TSYS01 sensor.
+ - Check that you have implemented the proper 10 ms delay between calling the startADC() and readTemperature() functions. And make sure that the startADC() function is called once for each call of the readTemperature function. Multiple calls to the readTemperature() function will result in all zeros being returned by the TSYS01 sensor.
 
  - If using the powerOn() and powerOff() functions, make sure that you have implemented a 4 ms delay before trying to start a new ADC conversion. The 4 ms delay is needed for the TSYS01 to complete the reset initiated by the powerOn() -function.
 
@@ -132,5 +132,5 @@ If you are still having problems you can email support@ell-i.org
 It will help if you can describe your problem, setup and the steps you have taken when trying to solve the issue in you email.
 
 ##How to buy
-The board is soon available from our supplier.
+The board is available from our [Elecrow's web store](http://www.elecrow.com/tsys01-temperature-sensor-board-p-1608.html).
 

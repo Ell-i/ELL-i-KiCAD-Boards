@@ -18,7 +18,7 @@ Tsys01::Tsys01(uint8_t _communicationProtocol, uint8_t _powerPin)
     #if TSYS_DEBUG
     Serial.println("TSYS01: Resetting sensor");
   #endif
-    this->reset();
+  this->reset();
   #if TSYS_DEBUG
     Serial.println("TSYS01: Starting to read calibration");
   #endif
@@ -40,6 +40,8 @@ Tsys01::Tsys01(uint8_t _communicationProtocol, uint8_t _powerPin, uint8_t _slave
   #if TSYS_DEBUG
     Serial.println("TSYS01: Resetting sensor");
   #endif
+  pinMode(_slaveSelect, OUTPUT);
+  digitalWrite(_slaveSelect, HIGH);
   this->reset();
   #if TSYS_DEBUG
     Serial.println("TSYS01: Starting to read calibration");
@@ -55,6 +57,9 @@ Tsys01::Tsys01(uint8_t _communicationProtocol, uint8_t _powerPin, uint8_t _slave
   this->slaveSelectPin = _slaveSelect;
   this->communicationProtocol = _communicationProtocol;
   this->protocolPin = _protocolPin;
+
+  pinMode(_slaveSelect, OUTPUT);
+  digitalWrite(_slaveSelect, HIGH);
   
   if(this->communicationProtocol == TSYS01_SPI)
   {
